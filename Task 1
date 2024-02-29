@@ -1,0 +1,25 @@
+def add_student(students_dict, student_id, student_name):
+    """Add a new student to the dictionary."""
+    students_dict[student_id] = student_name
+
+def get_student_info():
+    students = {}  # Initialize an empty dictionary
+    while True:
+        # Ask the user to input the student ID or a command to stop the input process
+        student_id = input("Enter student ID (or 'done' to finish): ")
+        if student_id.lower() == 'done':  # Check if the user wants to finish input
+            break
+        # Ask the user to input the student's name
+        student_name = input("Enter student's name: ")
+        add_student(students, student_id, student_name)  # Use the add_student function
+    return students
+
+def print_student_info(students_dict):
+    for id, name in students_dict.items():
+        print(f"ID: {id}, Name: {name}")
+
+# Get student info from user input
+students = get_student_info()
+
+# Print the collected student info
+print_student_info(students)
